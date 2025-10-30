@@ -1,3 +1,5 @@
+<snippet>
+	<content><![CDATA[
 // #pragma GCC optimize("Ofast")
 // #pragma GCC target("sse,sse2,sse3,mmx")
 // #pragma GCC optimize("unroll-loops")
@@ -42,12 +44,12 @@ using namespace std;
 #define precise(x,y)    fixed<<setprecision(y)<<x
 #define FIO             ios_base::sync_with_stdio(0); cin.tie(0)
 #define getunique(v)    {sort(v.begin(), v.end()); v.erase(unique(v.begin(), v.end()), v.end());}
-#define NO 				{cout<<"NO"<<endl; return;}
-#define YES 			{cout<<"YES"<<endl; return;}
-#define NEG1 			{cout<<"-1"<<endl; return;}
+#define NO                 {cout<<"NO"<<endl; return;}
+#define YES             {cout<<"YES"<<endl; return;}
+#define NEG1             {cout<<"-1"<<endl; return;}
 // #define oset            tree<int, null_type,less<int>, rb_tree_tag,tree_order_statistics_node_update> // set
 // #define osetpii         tree<pii, null_type,less<pii>, rb_tree_tag,tree_order_statistics_node_update> //like multiset
-mt19937 				rng(chrono::steady_clock::now().time_since_epoch().count());
+mt19937                 rng(chrono::steady_clock::now().time_since_epoch().count());
 // for long long use mt19937_64 and usage - just do rng()
 
 typedef tuple<int, int> tpl;
@@ -79,18 +81,53 @@ int dy[] = {0, 1, 0, -1};
 
 // **************************** Code Begins **************************** //
 
-void solve()
+void solve(ofstream &fin, ofstream &fout)
 {
-	int n;
-	cin >> n;
-	cout << n << endl;
+	int t = rng() % 10 + 1;
+	fin << t << endl;
+
+	while (t--)
+	{
+		int n = rng() % 5 + 1;
+		fin << n << endl;
+		int sum = 0;
+		for (int i = 0; i < n; i++)
+		{
+			int x = rng() % 10 + 1;
+			if (i < n - 1)
+				fin << x << " ";
+			else
+				fin << x << endl;
+			sum += x;
+		}
+		fout << (sum / n) << endl;
+	}
 }
 
 signed main()
 {
 	FIO;
 	int tt = 1;
-	cin >> tt;
-	for (int i = 1; i <= tt; i++)
-		solve();
+	// cin >> tt;
+	for (int i = 0; i < 10; i++)
+	{
+		// make ipop folder beforehand
+		ofstream fin;
+		string zero_padd = "";
+		if (i < 10) zero_padd += "0";
+		string ifile = "ipop/bigtc" + zero_padd + to_string(i) + ".in";
+		fin.open(ifile);
+		ofstream fout;
+		string ofile = "ipop/bigtc" + zero_padd + to_string(i) + ".out";
+		fout.open(ofile);
+		solve(fin, fout);
+		fin.close();
+		fout.close();
+	}
 }
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>create_test_cases</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

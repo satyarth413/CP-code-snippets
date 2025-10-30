@@ -1,3 +1,5 @@
+<snippet>
+	<content><![CDATA[
 // #pragma GCC optimize("Ofast")
 // #pragma GCC target("sse,sse2,sse3,mmx")
 // #pragma GCC optimize("unroll-loops")
@@ -94,3 +96,9 @@ signed main()
 	for (int i = 1; i <= tt; i++)
 		solve();
 }
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>cp_template</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

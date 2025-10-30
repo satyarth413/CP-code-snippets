@@ -1,3 +1,5 @@
+<snippet>
+	<content><![CDATA[
 // #pragma GCC optimize("Ofast")
 // #pragma GCC target("sse,sse2,sse3,mmx")
 // #pragma GCC optimize("unroll-loops")
@@ -89,8 +91,19 @@ void solve()
 signed main()
 {
 	FIO;
+	// freopen("i1.txt","r",stdin);
+	// freopen("o1.txt","w",stdout);
 	int tt = 1;
 	cin >> tt;
 	for (int i = 1; i <= tt; i++)
+	{
+		cout << "Case #" << i << ": ";
 		solve();
+	}
 }
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>meta_hacker_cup</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

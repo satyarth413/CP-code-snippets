@@ -1,3 +1,5 @@
+<snippet>
+	<content><![CDATA[
 // #pragma GCC optimize("Ofast")
 // #pragma GCC target("sse,sse2,sse3,mmx")
 // #pragma GCC optimize("unroll-loops")
@@ -79,18 +81,53 @@ int dy[] = {0, 1, 0, -1};
 
 // **************************** Code Begins **************************** //
 
+int correct_ans(int n)
+{
+	int ans = 0;
+	return ans;
+}
+
+int by_code(int n)
+{
+	int ans = 1;
+	return ans;
+}
+
+int tries = 0;
+
 void solve()
 {
-	int n;
-	cin >> n;
-	cout << n << endl;
+starting:
+	tries++;
+	int n = rng() % 100 + 1;
+	int code_ans = by_code(n);
+	int right_ans = correct_ans(n);
+
+	if (right_ans != code_ans)
+	{
+		cout << n << endl;
+		cout << code_ans << " " << right_ans << endl;
+		return;
+	}
+	if (tries == 1000)
+	{
+		cout << "No Case Failed" << endl;
+		return;
+	}
+	goto starting;
 }
 
 signed main()
 {
 	FIO;
 	int tt = 1;
-	cin >> tt;
+	// cin >> tt;
 	for (int i = 1; i <= tt; i++)
 		solve();
 }
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>run_against_correct_code</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
