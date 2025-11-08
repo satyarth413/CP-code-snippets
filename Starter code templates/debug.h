@@ -1,7 +1,7 @@
 #ifndef DEBUG_H
 #define DEBUG_H
 
-#include <bits/stdc++.h>
+#include "bits/stdc++.h"
 using namespace std;
 
 string to_string(char c) { return string(1, c); }
