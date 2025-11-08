@@ -79,6 +79,7 @@ int dy[] = {0, 1, 0, -1};
 
 // **************************** Code Begins **************************** //
 
+// Implement solution to each test case here
 void solve()
 {
 	int n;
@@ -86,8 +87,7 @@ void solve()
 	cout << n << endl;
 }
 
-signed main()
-{
+static void run_main() {
 	FIO;
 	// freopen("i1.txt","r",stdin);
 	// freopen("o1.txt","w",stdout);
@@ -98,4 +98,19 @@ signed main()
 		cout << "Case #" << i << ": ";
 		solve();
 	}
+	exit(0);
+}
+// https://nor-blog.pages.dev/posts/2023-09-25-increase-stack-size/
+signed main() {
+    size_t stsize = 1024 * 1024 * 1024; // run with a 1 GiB stack
+    char *stack, *send;
+    stack = (char *)malloc(stsize);
+    send = stack + stsize;
+    send = (char *)((uintptr_t)send / 16 * 16);
+    asm volatile(
+        "mov %0, %%rsp\n"
+        "call *%1\n"
+        :
+        : "r"(send), "r"(run_main));
+    return 0;
 }
